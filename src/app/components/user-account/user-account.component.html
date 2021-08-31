@@ -1,0 +1,50 @@
+<html>
+
+    <div [hidden]="submitted">
+<!-- multistep form -->
+<form id="msform" (ngSubmit)="onSubmit()">
+    <!-- progressbar -->
+    <ul id="progressbar"  class="p1">
+      <li class="active">Personal details</li>
+      <li  class="active">Account setup</li>
+      <li>Set pin</li>
+    </ul>
+    <!-- fieldsets -->
+    <fieldset>
+      <h2 class="fs-title">Set up your account details</h2>
+      <h3 class="fs-subtitle">This is step 2</h3>
+      <!-- <input type="text" name="email" placeholder="Email" />
+      <input type="password" name="pass" placeholder="Password" />
+      <input type="password" name="cpass" placeholder="Confirm Password" />
+      <input type="button" name="next" class="next action-button" value="Next" /> -->
+      
+      <label for="accounttype" class="fs-title2"><span class="req">* </span>Account Type: </label><br>
+      
+
+      <select name="accounttype" id="accounttype" class="fs-title3" [(ngModel)]="accounttype">
+          <option value="Multi-Currency">Multi-Currency</option>
+          <option value="Single-Currency">Single-Currency</option>
+      </select><br>
+
+
+
+    <label for="basecurrency" class="fs-title2"><span class="req">* </span>Base Currency Type: </label><br>
+
+    <select name="basecurrency" id="basecurrency" class="fs-title3" [(ngModel)]="basecurrency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="INR">INR</option>
+    </select>
+
+    <br>
+    <button class="next action-button" routerLink="/register">Back</button>
+    <button class="next action-button">Submit</button>
+    </fieldset>
+   
+  </form>
+  </div>
+
+
+<script src="user-account.js" type="textscript"></script>
+
+</html>

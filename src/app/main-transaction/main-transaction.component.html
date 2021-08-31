@@ -1,0 +1,46 @@
+<html>
+
+    <div [hidden]="submitted" >
+<!-- multistep form -->
+<form #applicationform="ngForm" id="msform" (ngSubmit)="onSubmit()">
+    <!-- progressbar -->
+    
+    <!-- fieldsets -->
+    <fieldset>
+      <h2 class="fs-title">Fill in the details</h2><br>
+      
+    
+      <label for="reciever" class="fs-title2"><span class="req">* </span>Reciever Account number:</label>
+      <input required  type="number" [(ngModel)]="transaction.reciever"
+          name="reciever" id="reciever" class="form-control "
+          placeholder="reciever account number" >
+
+
+          <label for="amount" class="fs-title2"><span class="req">* </span>Amount: </label>
+          <input required type="number" [(ngModel)]="transaction.amount"
+              name="amount" id="amount" class="form-control "
+              placeholder="Amount">
+
+           
+              
+              <label for="amount" class="fs-title2"><span class="req">* </span>Currency type:</label><br>
+    <select name="currencytype" id="currencytype" class="fs-title3" [(ngModel)]="transaction.currencyType">
+      <option value="USD">USD</option>
+      <option value="EUR">EUR</option>
+      <option value="GBP">GBP</option>
+  </select>
+
+              
+    <br>
+    <button class="next action-button"  (click)="back()">Back</button>
+    <button class="next action-button" [disabled]=applicationform.invalid>Submit</button>
+   
+    </fieldset>
+   
+  </form>
+  </div>
+
+
+<script src="demo.js" type="textscript"></script>
+
+  </html>

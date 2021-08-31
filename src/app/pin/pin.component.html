@@ -1,0 +1,39 @@
+<html>
+
+    <div [hidden]="submitted" >
+<!-- multistep form -->
+<form #applicationform="ngForm" id="msform" (ngSubmit)="onSubmit()">
+    <!-- progressbar -->
+    <ul id="progressbar"  class="p1">
+      <li class="active title">Personal details</li>
+      <li  class="active title">Account setup</li>
+      <li class="active title">Set pin</li>
+    </ul>
+    <!-- fieldsets -->
+    <fieldset>
+      <h2 class="fs-title">Set up your pin</h2>
+      <h3 class="fs-subtitle">This is step 3</h3>
+    
+      <label for="pin" class="fs-title2"><span class="req">* </span>Pin </label>
+      <input required  type="text" [(ngModel)]="pin"
+          name="pin" id="pin" class="form-control "
+          placeholder="pin" pattern="^[1-9][0-9]{5}$">
+
+
+          <label for="confirmpin" class="fs-title2"><span class="req">* </span>Re-enter Pin: </label>
+          <input required pattern="^[1-9][0-9]{5}$" type="text" [(ngModel)]="confirmpin"
+              name="confirmpin" id="confirmpin" class="form-control "
+              placeholder="Re-enter Pin">
+    <br>
+    <button class="next action-button"  (click)="back()">Back</button>
+    <button class="next action-button" [disabled]=applicationform.invalid>Submit</button>
+    <p *ngIf="!pinval">Enter the same pin</p>
+    </fieldset>
+   
+  </form>
+  </div>
+
+
+<script src="pin.js" type="textscript"></script>
+
+  </html>

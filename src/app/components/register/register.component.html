@@ -1,0 +1,71 @@
+<html>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- multistep form -->
+<div class="container-fluid">
+    <div class="col-sm-12 col-lg-12 col-md-12">
+    <div class="class1">
+        <div [hidden]="submitted">
+<form id="msform" #applicationform="ngForm" (ngSubmit)="onSubmit()">
+    <!-- progressbar -->
+    <ul id="progressbar"  class="p1">
+      <li class="active">Personal details</li>
+      <li>Account setup</li>
+      <li>Set pin</li>
+    </ul>
+    <!-- fieldsets -->
+    <fieldset>
+      <h2 class="fs-title">Create your account</h2>
+      <h3 class="fs-subtitle">This is step 1</h3>
+      <!-- <input type="text" name="email" placeholder="Email" />
+      <input type="password" name="pass" placeholder="Password" />
+      <input type="password" name="cpass" placeholder="Confirm Password" />
+      <input type="button" name="next" class="next action-button" value="Next" /> -->
+      
+      <input required pattern="^[A-Z a-z]{1,15}$" type="text" [(ngModel)]="user.firstname"
+      name="firstname" id="firstname" class="form-control p4 my-3 "
+      placeholder="firstname"  #firstname="ngModel">
+      
+     <input required pattern="^[A-Z a-z]{1,15}$"type="text" [(ngModel)]="user.lastname" name="laststname" id="lasttname" class="form-control p4 my-3 " placeholder="lastname">
+    
+     <input required pattern="^[A-Za-z0-9_-]{3,15}$" type="text" [(ngModel)]="user.username"
+     name="firstname" id="username" class="form-control p4 my-3 "
+     placeholder="username">
+
+
+   
+     <input required type="password"
+         [(ngModel)]="user.password" name="password" id="password"
+         class="form-control p4 my-3 " placeholder="password" #password="ngModel">
+         <div [hidden]="password.valid || password.pristine"
+         class="alert alert-danger">Minimum eight characters, at least one letter and one number:</div>
+
+
+
+    <input required type="number" pattern="^[789][0-9]{9}$" [(ngModel)]="user.phoneno" name="phoneno"
+     id="phoneno" class="form-control p4 my-3 " placeholder="phoneno">
+
+     <input required type="date" [(ngModel)]="user.dob" name="dob" id="dob"
+                                        class="form-control p4 my-3 " placeholder="date of birth">
+    
+    
+<input required type="email" [(ngModel)]="user.email" name="email" id="email"
+    class="form-control p4 my-3 " placeholder="email">
+
+
+    <input required type="text" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" [(ngModel)]="user.pancardno" name="pancardno"
+    id="pancardno" class="form-control p4 my-3 " placeholder="pancardno">
+<!-- 
+    <input type="button" name="Submit" class="next action-button" value="Submit"  /> -->
+    <button class="next action-button" [disabled]=applicationform.invalid>Submit</button>
+    </fieldset>
+   
+  </form>
+  </div>
+</div>
+</div>
+</div>
+
+<script src="user-register.js" type="textscript"></script>
+
+</html>

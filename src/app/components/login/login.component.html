@@ -1,0 +1,43 @@
+<!-- <html>
+    <div class="container-fluid">
+       <div class="row">
+           <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+               <div class="colour1">
+                    <form id="msform" (ngSubmit)="onSubmit()">
+                        <fieldset>
+                            <h1 class="fs-title">LOGIN</h1>
+                            <label for="username" class="fs-title2"><span class="req">* </span>Username: </label>
+                            <input required  type="text" name="username" id="username" [(ngModel)]="credentials.username" pattern="^[A-Za-z0-9_-]{3,15}$" class="form-control "placeholder="Username"  >
+                            
+                            <label for="password" class="fs-title2"><span class="req">* </span>Password: </label>
+                            <input required  type="text" [(ngModel)]="credentials.password" pattern="^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[^\w\s]).{8,}$" name="password" id="password" class="form-control" placeholder="Password">
+                            <br>
+                            <button class="next action-button submit">Submit</button>
+                        </fieldset>
+                    </form>
+                    <script src="login.js" type="textscript"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+</html> -->
+
+<div class="container">  
+  <div class="left">
+    <div class="header">
+      <h2 class="animation a1">Welcome Back</h2>
+      <h4 class="animation a2">Log in to your account using email and password</h4>
+    </div>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form">
+            <input type="text" class="form-control form-field animation a3" placeholder="username" name="username" id="username" [(ngModel)]="credentials.username" pattern="^[A-Za-z0-9_-]{3,15}$">
+            <input type="password" class="form-control form-field animation a4" placeholder="Password" [(ngModel)]="credentials.password" pattern="^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[^\w\s]).{8,}$" name="password" id="password">
+
+        <button class="animation a6 submit">LOGIN</button>
+        <p>Dont have an account? <a routerLink="/register">Register here</a></p>
+        </div>
+    </form>
+  </div>
+
+  <div class="right"></div>
+</div> 
